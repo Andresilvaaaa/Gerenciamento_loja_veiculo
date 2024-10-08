@@ -1,0 +1,80 @@
+/* Estilos Globais */
+body {
+    background-color: #fafafa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+.navbar {
+    font-size: 18px;
+}
+
+/* Container principal */
+.container {
+    width: 100%;
+    /* max-width: 350px; */
+    max-height: 600px;
+  }
+
+/* Formulário de Cadastro */
+.register-form {
+    background-color: #ffffff;
+    border: 1px solid #dbdbdb;
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 60%;
+}
+
+.register-form h2 {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.register-form .form-control {
+    background-color: #fafafa;
+    border: 1px solid #dbdbdb;
+    font-size: 14px;
+}
+
+.register-form .form-control:focus {
+    background-color: #fff;
+    border-color: #0d6efd;
+    box-shadow: none;
+}
+
+.register-form .btn-primary {
+    background-color: #0d6efd;
+    border: none;
+    font-weight: bold;
+}
+
+.register-form .btn-primary:hover {
+    background-color: #0b5ed7;
+}
+
+/* Ícone de exibir senha */
+.input-group .toggle-password {
+    cursor: pointer;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    border-left: 1px solid #dbdbdb;
+}
+
+.input-group .toggle-password i {
+    font-size: 18px;
+    color: #8e8e8e;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .register-form {
+        width: 100%;
+        padding: 30px;
+    }
+}

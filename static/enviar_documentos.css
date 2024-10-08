@@ -1,0 +1,221 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #333;
+  padding-top: 80px; /* Ajuste conforme a altura da navbar */ 
+}
+
+/* Deixando a navbar fixa no topo */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Garante que a navbar esteja acima de outros elementos */
+}
+
+
+
+.navbar-brand {
+  font-size: 30px;     /* Aumenta o tamanho da fonte */
+  font-weight: bold;   /* Deixa o texto mais espesso (opcional) */
+  color: #333;         /* Cor do texto (você pode alterar se necessário) */
+}
+
+.modal {
+  width: 400px;
+  transition: background-color 0.3s, color 0.3s;
+
+}
+
+.modal-content {
+  width: 400px;
+  transition: background-color 0.3s, color 0.3s;
+  
+}
+
+.list-group-item:hover {
+  background-color: rgba(59, 57, 57, 0.164);
+
+}
+
+.list-group {
+  list-style-type: none; /* Remove os marcadores */
+  padding-left: 0;       /* Remove o recuo padrão da lista */
+}
+
+.list-group li {
+  text-decoration: none; /* Remove sublinhado dos links */
+  color: #007bff;        /* Define a cor do link */
+  display: flex;         /* Alinha ícones e texto horizontalmente */
+  align-items: center;   /* Alinha ícones e texto verticalmente */
+  font-size: 20px;       /* Aumenta o tamanho do texto dos itens do menu */
+  font-weight: bold;     /* Aumenta a espessura da fonte */
+}
+
+.list-group li a {
+  text-decoration: none; /* Remove sublinhado dos links */
+  color: #007bff;        /* Define a cor do link */
+  display: flex;         /* Alinha ícones e texto horizontalmente */
+  align-items: center;   /* Alinha ícones e texto verticalmente */
+  size: 30px;
+  font-size: 25px;            /* Aumenta o tamanho do texto */
+  font-weight: bold;          /* Aumenta a espessura da fonte */
+  padding: 15px;
+}
+
+.list-group li a i {
+  margin-right: 10px;         /* Espaçamento entre o ícone e o texto */
+  font-size: 25px;            /* Aumenta o tamanho dos ícones do menu */
+}
+
+
+/* Ajuste de layout para o contêiner principal */
+.container {
+  max-width: 90%; /* Largura máxima para centralizar o conteúdo */
+  background-color: #fff;
+  padding: 30px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Definir o estilo dos campos de pesquisa e upload */
+#client-search-input, .upload-container {
+  width: 100%; /* Define a largura total para os elementos */
+}
+
+/* Ajuste para a tabela ocupar 100% da largura */
+.table {
+  width: 100%; /* Faz a tabela ocupar toda a largura */
+  margin-top: 15px;
+  border-collapse: collapse; /* Remove espaçamento entre as células */
+  background-color: #f9f9f9; /* Fundo mais claro */
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+}
+
+/* Alinhamento dos cabeçalhos e células */
+.table th, .table td {
+  padding: 12px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Estilo para o cabeçalho da tabela */
+.table thead th {
+  background-color: #3498db; /* Fundo para o cabeçalho */
+  color: #fff; /* Texto branco */
+  font-weight: bold;
+}
+
+/* Estilo para as linhas do corpo da tabela */
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Fundo alternado para as linhas pares */
+}
+
+/* Botões e contêineres */
+.btn-container {
+  display: flex;
+  justify-content: center; /* Alinhamento central dos botões */
+  gap: 15px; /* Espaçamento entre os botões */
+  margin-top: 20px; /* Espaçamento superior */
+}
+
+.btn-uniforme {
+  width: 200px; /* Define uma largura fixa para uniformizar */
+  height: 45px; /* Define uma altura fixa */
+  padding: 10px;
+  border: none;
+  border-radius: 8px; /* Torna os cantos arredondados */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* Botões */
+#buscar-clientes-btn, #enviar-relatorio-email-btn {
+  background-color: #3498db;
+}
+
+#limpar-btn, #limpar-anexo-btn {
+  background-color: #7f8c8d;
+}
+
+#buscar-clientes-btn:hover, #enviar-relatorio-email-btn:hover {
+  background-color: #2980b9;
+}
+
+#limpar-btn:hover, #limpar-anexo-btn:hover {
+  background-color: #5a6d6e;
+}
+
+/* Estilo para os ícones dentro dos botões */
+.btn-uniforme i {
+  margin-right: 10px; /* Espaçamento entre ícone e texto */
+}
+
+
+/* Estilo para a tabela de clientes */
+.table {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: collapse; /* Remove espaçamento entre as células */
+  background-color: #f9f9f9; /* Fundo mais claro */
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+}
+
+/* Cabeçalho da tabela */
+.table thead th {
+  background-color: #3498db; /* Cor de fundo para o cabeçalho */
+  color: #fff; /* Cor do texto */
+  text-align: center; /* Centraliza o texto */
+  padding: 12px; /* Preenchimento interno */
+  font-size: 16px; /* Tamanho da fonte */
+}
+
+/* Corpo da tabela */
+.table tbody td {
+  padding: 10px; /* Preenchimento interno */
+  text-align: center; /* Centraliza o conteúdo das células */
+  font-size: 14px; /* Tamanho da fonte */
+  vertical-align: middle; /* Alinha verticalmente */
+}
+
+/* Estilo alternado para as linhas do corpo */
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Cor de fundo alternada para as linhas pares */
+}
+
+/* Borda ao redor das células */
+.table td, .table th {
+  border: 1px solid #ddd; /* Borda mais suave */
+}
+
+/* Coluna Selecionar (mais estreita) */
+.table .col-selecionar {
+  width: 70px; /* Defina uma largura fixa para a coluna "Selecionar" */
+}
+
+/* Coluna CPF */
+.table .col-cpf {
+  width: 150px; /* Ajuste a largura do CPF */
+}
+
+/* Coluna Nome Completo */
+.table .col-nome {
+  width: 250px; /* Mais espaço para nomes longos */
+}
+
+/* Coluna Telefone */
+.table .col-telefone {
+  width: 180px; /* Defina a largura para telefone */
+}
+
+/* Coluna E-mail */
+.table .col-email {
+  width: 280px; /* Espaço extra para endereços de e-mail */
+}
+
+/* Coluna Cidade */
+.table .col-cidade {
+  width: 150px; /* Largura fixa para a cidade */
+}

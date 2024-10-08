@@ -1,0 +1,166 @@
+/* Estilos globais */
+body {
+    background-color: #fafafa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+.navbar {
+  font-size: 18px;
+}
+
+/* Títulos */
+h1, h2, h3 {
+    color: #333;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+h2 {
+    font-weight: bold;
+    color: #555;
+}
+
+h3 {
+    font-weight: bold;
+    color: #777;
+}
+
+/* Texto e links */
+p, label {
+    color: #333;
+    font-size: 16px;
+}
+
+a {
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Formulário */
+.form-control {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.form-control:focus {
+    background-color: #fafafa;
+    border: 1px solid #a8a8a8;
+    box-shadow: none;
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+}
+
+/* Ícones sociais */
+.social-icon {
+    margin-right: 15px;
+    color: #333;
+}
+
+.social-icon:hover {
+    color: #0d6efd;
+}
+
+/* Chat Icon */
+.chat-icon {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #0d6efd;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.chat-icon i {
+    font-size: 30px;
+}
+
+/* Janela de Chat */
+.chat-window {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 350px;
+    max-width: 90%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.chat-header {
+    background-color: #0d6efd;
+    color: #fff;
+    padding: 15px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header .close-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.chat-body {
+    padding: 15px;
+    height: 200px;
+    overflow-y: auto;
+}
+
+.chat-footer {
+    display: flex;
+    border-top: 1px solid #ccc;
+}
+
+.chat-footer input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+}
+
+.chat-footer button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #0d6efd;
+    color: #fff;
+    cursor: pointer;
+}
+
+.chat-footer button:hover {
+    background-color: #0b5ed7;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .col-md-6 {
+        margin-top: 30px;
+    }
+}

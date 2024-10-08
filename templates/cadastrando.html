@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Criar Conta</title>
+    <link rel="stylesheet" href="./static/cadastrando.css" />
+</head> 
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">AGEVEC</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <ul class="navbar-nav me-auto">
+                <!-- <li class="nav-item"><a class="nav-link" href="./index.html" data-page="home">Home</a></li> -->        
+                <!-- <li class="nav-item"><a class="nav-link" href="./contato.html" data-page="contato">Contato</a></li>
+                <li class="nav-item"><a class="nav-link" href="./quem_somos.html" data-page="sobre">Quem Somos</a></li> -->
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}" >Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('contato') }}" >Contato</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('quem_somos') }}" >Quem Somos</a></li>
+              </ul>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- Formulário de cadastro de usuário -->
+    <div class="container d-flex flex-column align-items-center justify-content-center vh-100">
+        <form id="userForm" class="register-form text-center">
+            <h2 class="mb-4">Crie sua Conta</h2>
+            <!-- Campo para o nome de usuário -->
+            <div class="mb-3">
+                <input type="text" id="username" name="username" class="form-control" placeholder="Nome de Usuário" required>
+                <div class="invalid-feedback">Por favor, insira um nome completo válido com pelo menos duas palavras (ex: Ana Silva).</div>
+            </div>
+            <!-- Campo para o nome completo -->
+            <div class="mb-3">
+                <input type="text" id="full_name" name="full_name" class="form-control" placeholder="Nome Completo" required>
+                <div class="invalid-feedback">Por favor, insira um nome válido (mínimo 5 caracteres).</div>
+            </div>
+            <!-- Campo para o telefone celular -->
+            <div class="mb-3">
+                <input type="text" id="cellphone" name="cellphone" class="form-control" placeholder="Telefone Celular" required>
+                <div class="invalid-feedback">Por favor, insira um número de celular válido.</div>
+            </div>
+            <!-- Campo para o e-mail -->
+            <div class="mb-3">
+                <input type="email" id="email" name="email" class="form-control" placeholder="E-mail" required>
+                <div class="invalid-feedback">Por favor, insira um email válido (deve terminar com .com, .br, .org, etc.).</div>
+            </div>
+            <!-- Campo para a senha -->
+            <div class="input-group mb-3">
+                <input type="password" id="new_password" name="new_password" class="form-control" placeholder="Senha" required>
+                <span class="input-group-text toggle-password" onclick="togglePassword('new_password', 'togglePasswordIcon1')">
+                    <i class="fa fa-eye" id="togglePasswordIcon1"></i>
+                </span>
+                <div class="invalid-feedback">A senha deve ter pelo menos 8 caracteres, com letras maiúsculas, minúsculas, números e caracteres especiais.</div>
+            </div>
+            <!-- Campo para a confirmação de senha -->
+            <div class="input-group mb-3">
+                <input type="password" id="confirme_password" name="confirme_password" class="form-control" placeholder="Confirmação de Senha" required>
+                <span class="input-group-text toggle-password" onclick="togglePassword('confirme_password', 'togglePasswordIcon2')">
+                    <i class="fa fa-eye" id="togglePasswordIcon2"></i>
+                </span>
+                <div class="invalid-feedback">As senhas não coincidem.</div>
+            </div>
+            <!-- Botão de envio do formulário -->
+            <button type="submit" class="btn btn-primary w-100">Enviar</button>
+            <!-- Div para exibir mensagens de sucesso ou erro -->
+            <div id="message" class="message mt-3" style="display: none;"></div>
+        </form>
+    </div>
+
+    <!-- Modal de sucesso -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Sucesso</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Cadastro realizado com sucesso!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="confirmButton">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Script JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    
+    <script>
+        // Função para mostrar/esconder senha
+        function togglePassword(fieldId, iconId) {
+            const passwordField = document.getElementById(fieldId);
+            const togglePasswordIcon = document.getElementById(iconId);
+    
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                togglePasswordIcon.classList.remove('fa-eye');
+                togglePasswordIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                togglePasswordIcon.classList.remove('fa-eye-slash');
+                togglePasswordIcon.classList.add('fa-eye');
+            }
+        }
+    
+        // Adiciona um evento de envio ao formulário
+        document.getElementById('userForm').addEventListener('submit', function(event) {
+            // Previne o envio padrão do formulário
+            event.preventDefault();
+    
+            // Obtém os valores dos campos de entrada
+            const username = document.getElementById('username').value.trim();
+            const full_name = document.getElementById('full_name').value.trim();
+            const cellphone = document.getElementById('cellphone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const new_password = document.getElementById('new_password').value.trim();
+            const confirme_password = document.getElementById('confirme_password').value.trim();
+    
+            let formIsValid = true;
+    
+            // Validação do nome completo (mínimo 3 caracteres)
+            if (!/^[a-zA-Z]{2,}\s[a-zA-Z]{2,}(\s[a-zA-Z]{2,})*$/.test(full_name)) {
+                $('#full_name').addClass('is-invalid');
+                $('#full_name').next('.invalid-feedback').text('Por favor, insira um nome completo válido com pelo menos duas palavras (ex: Ana Silva).');
+                formIsValid = false;
+            } else {
+                $('#full_name').removeClass('is-invalid');
+                $('#full_name').next('.invalid-feedback').text('');
+            }
+    
+            // Validação do nome de usuário (mínimo 3 caracteres)
+            if (!/^[a-zA-Z0-9]{5,}$/.test(username)) {
+                $('#username').addClass('is-invalid');
+                $('#username').next('.invalid-feedback').text('Por favor, insira um nome de usuário válido (mínimo 3 caracteres).');
+                formIsValid = false;
+            } else {
+                $('#username').removeClass('is-invalid');
+                $('#username').next('.invalid-feedback').text('');
+            }
+    
+            // Validação do email (deve terminar com .com, .br, .org, etc.)
+            if (!/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/.test(email)) {
+                $('#email').addClass('is-invalid');
+                $('#email').next('.invalid-feedback').text('Por favor, insira um email válido (deve terminar com .com, .br, .org, etc.).');
+                formIsValid = false;
+            } else {
+                $('#email').removeClass('is-invalid');
+                $('#email').next('.invalid-feedback').text('');
+            }
+    
+            // Validação do celular
+            if (!/^\d{2}\d{5}\d{4}$/.test(cellphone)) {
+                $('#cellphone').addClass('is-invalid');
+                $('#cellphone').next('.invalid-feedback').text('Por favor, insira um número de celular válido.');
+                formIsValid = false;
+            } else {
+                $('#cellphone').removeClass('is-invalid');
+                $('#cellphone').next('.invalid-feedback').text('');
+            }
+    
+            // Validação da senha (mínimo 8 caracteres, letras maiúsculas e minúsculas, números, e caracteres especiais)
+            if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,}$/.test(new_password)) {
+                $('#new_password').addClass('is-invalid');
+                $('#new_password').next('.invalid-feedback').text('A senha deve ter pelo menos 8 caracteres, com letras maiúsculas, minúsculas, números e caracteres especiais.');
+                formIsValid = false;
+            } else {
+                $('#new_password').removeClass('is-invalid');
+                $('#new_password').next('.invalid-feedback').text('');
+            }
+    
+            // Validação da confirmação de senha
+            if (new_password !== confirme_password) {
+                $('#confirme_password').addClass('is-invalid');
+                $('#confirme_password').next('.invalid-feedback').text('As senhas não coincidem.');
+                formIsValid = false;
+            } else {
+                $('#confirme_password').removeClass('is-invalid');
+                $('#confirme_password').next('.invalid-feedback').text('');
+            }
+    
+            // Se o formulário for válido, prosseguir com a requisição
+            if (formIsValid) {
+                fetch('http://127.0.0.1:5000/consult_user', {
+                    method: 'POST', // Método HTTP
+                    headers: {
+                        'Content-Type': 'application/json' // Tipo de conteúdo
+                    },
+                    body: JSON.stringify({username, full_name, cellphone, email, new_password}) // Corpo da requisição em JSON
+                })
+                // .then(data => {
+                //         console.log('Parsed response:', data);
+                //         // Continuação do processamento dos dados
+                //     })
+                // .then(response => response.json().then(data => ({ 
+                //     status: response.status, // Obtém o status da resposta
+                //     body: data // Obtém o corpo da resposta
+
+                // .then(response => {
+                //     console.log(response); // Adicione isso para verificar o que está sendo retornado
+                //     return response.json(); // Tentativa de converter a resposta em JSON
+                // })
+                    
+                // })))
+                .then(({ status, body }) => {
+                    if (status >= 200 && status < 300) {
+                        // Se a resposta foi bem-sucedida, exibe a modal de sucesso
+                        const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                        successModal.show();
+                        document.getElementById('userForm').reset(); // Limpa os campos do formulário
+                    } else {
+                        // Se houve um erro, exibe a mensagem de erro
+                        const messageDiv = document.getElementById('message');
+                        messageDiv.style.display = 'block'; // Exibe a div de mensagens
+                        messageDiv.className = 'message error'; // Define a classe CSS para erro
+                        messageDiv.textContent = `${body.stage}: ${body.message}`; // Define a mensagem de erro
+                    }
+                })
+                .catch(error => {
+                    // Captura erros na requisição
+                    console.error('Erro API:', error);
+                    const messageDiv = document.getElementById('message');
+                    messageDiv.style.display = 'block'; // Exibe a div de mensagens
+                    messageDiv.className = 'message error'; // Define a classe CSS para erro
+                    messageDiv.textContent = `Erro API: Falha ao conectar à API ou rota não encontrada (${error})`; // Define a mensagem de erro
+                });
+            }
+        });
+    
+            // Redireciona para a página inicial após o usuário confirmar
+            document.getElementById('confirmButton').addEventListener('click', function() {
+                window.location.href = "{{ url_for('index') }}"; // Redireciona para a página inicial
+            });     
+        
+            // Inicialize o jQuery Mask para o campo de celular
+            $(document).ready(function(){
+                $('#cellphone').mask('00000000000');
+            });
+
+                
+    </script>
+</body>
+</html>

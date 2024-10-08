@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Veículos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Veículos</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Renavam</th>
+                    <th>Número Chassi</th>
+                    <th>Modelo</th>
+                    <th>Marca</th>
+                    <th>Cor</th>
+                    <!-- Adicione mais colunas conforme necessário -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for veiculo in veiculos %}
+                <tr>
+                    <td>{{ veiculo.renavan }}</td>
+                    <td>{{ veiculo.numero_chassi }}</td>
+                    <td>{{ veiculo.modelo }}</td>
+                    <td>{{ veiculo.marca }}</td>
+                    <td>{{ veiculo.cor }}</td>
+                    <!-- Adicione mais colunas conforme necessário -->
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

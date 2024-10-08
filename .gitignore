@@ -1,0 +1,8 @@
+# Arquivo de variáveis de ambiente
+.env
+
+# Diretórios a serem ignorados
+backups
+LLM
+dashboards
+pdfs

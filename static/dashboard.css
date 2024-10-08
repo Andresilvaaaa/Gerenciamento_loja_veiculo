@@ -1,0 +1,359 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Garante que a navbar esteja acima de outros elementos */
+}
+
+.navbar-brand {
+  font-size: 30px;     /* Aumenta o tamanho da fonte */
+  font-weight: bold;   /* Deixa o texto mais espesso (opcional) */
+  color: #333;         /* Cor do texto (você pode alterar se necessário) */
+}
+
+.modal {
+  width: 400px;
+
+}
+
+.modal-content {
+  width: 400px;
+  
+}
+
+.list-group-item:hover {
+  background-color: rgba(59, 57, 57, 0.164);
+
+}
+
+.list-group {
+  list-style-type: none; /* Remove os marcadores */
+  padding-left: 0;       /* Remove o recuo padrão da lista */
+}
+
+.list-group li {
+  text-decoration: none; /* Remove sublinhado dos links */
+  color: #007bff;        /* Define a cor do link */
+  display: flex;         /* Alinha ícones e texto horizontalmente */
+  align-items: center;   /* Alinha ícones e texto verticalmente */
+  font-size: 20px;       /* Aumenta o tamanho do texto dos itens do menu */
+  font-weight: bold;     /* Aumenta a espessura da fonte */
+}
+
+.list-group li a {
+  text-decoration: none; /* Remove sublinhado dos links */
+  color: #007bff;        /* Define a cor do link */
+  display: flex;         /* Alinha ícones e texto horizontalmente */
+  align-items: center;   /* Alinha ícones e texto verticalmente */
+  size: 30px;
+  font-size: 25px;            /* Aumenta o tamanho do texto */
+  font-weight: bold;          /* Aumenta a espessura da fonte */
+  padding: 15px;
+}
+
+.list-group li a i {
+  margin-right: 10px;         /* Espaçamento entre o ícone e o texto */
+  font-size: 25px;            /* Aumenta o tamanho dos ícones do menu */
+}
+
+/* Estilo para os links das redes sociais */
+.social-icons {
+  display: flex;              /* Coloca os ícones lado a lado */
+  justify-content: start;     /* Alinha os ícones à esquerda */
+  gap: 80px;                  /* Espaçamento entre os ícones */
+  margin-top: 20px;
+  margin-left: 20px;          /* Espaçamento acima dos ícones */
+}
+
+.social-icons a {
+  font-size: 30px;            /* Define o tamanho dos ícones */
+  color: #007bff;             /* Cor dos ícones */
+  text-decoration: none;      /* Remove sublinhado dos ícones */
+}
+
+.social-icons a:hover {
+  color: #0056b3;             /* Cor dos ícones ao passar o mouse */
+}
+
+/* Estilos Gerais */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  padding-top: 80px;
+}
+
+/* Cards do Dashboard */
+.dashboard-card {
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 1rem;
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,.2);
+  
+}
+
+.dashboard-card .card-body {
+  padding: 20px;
+}
+
+.dashboard-card h5 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.dashboard-card h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0;
+}
+
+
+/* Paleta de Cores em Tons de Roxo e Lilás */
+.card-bg-purple {
+  background: linear-gradient(45deg, #7b2cbf, #9d4edd);
+  
+}
+
+.card-bg-light-purple {
+  background: linear-gradient(45deg, #9d4edd, #c77dff);
+}
+
+.card-bg-dark-purple {
+  background: linear-gradient(45deg, #5a189a, #7b2cbf);
+}
+
+.card-bg-pink {
+  background: linear-gradient(45deg, #c77dff, #e0aaff);
+}
+
+/* Estilo dos Cards de Gráficos */
+.card-chart {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-chart:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+
+.card-chart .card-header {
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 18px;
+  border-bottom: none;
+}
+
+.card-chart .card-body {
+  padding: 20px;
+}
+
+/* Estilo dos Gráficos */
+.card-chart canvas {
+  width: 60% !important;
+  height: auto !important;
+}
+
+/* Títulos */
+h3 {
+  color: #333;
+  border-bottom: 2px solid #7b2cbf;
+  padding-bottom: 10px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+/* Estilo das Tabelas */
+.styled-table {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,.1);
+}
+
+.styled-table table {
+  margin-bottom: 0;
+}
+
+.styled-table thead {
+  background-color: #7b2cbf;
+  color: #fff;
+}
+
+.styled-table thead th {
+  font-weight: bold;
+  border: none;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3e8ff;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #e0aaff;
+  color: #fff;
+}
+
+.styled-table tbody td {
+  border: none;
+}
+
+/* Estilo dos Ícones nos Títulos */
+h3 i {
+  color: #7b2cbf;
+  margin-right: 10px;
+}
+
+
+
+/* Responsividade dos Cards */
+@media (max-width: 768px) {
+  .dashboard-card h2 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 576px) {
+  .dashboard-card h5 {
+    font-size: 16px;
+  }
+
+  .dashboard-card h2 {
+    font-size: 24px;
+  }
+}
+
+/* Estilos Adicionais para o Gráfico de Vendas por Estado */
+#graficoVendasEstado {
+  max-width: 50%;
+  height: 200px;
+  margin: auto;
+}
+
+
+
+
+
+/* Estilo CSS PARA O BOTÃO DE DOWNLOAD
+/* From Uiverse.io by Na3ar-17 */ 
+/* From Uiverse.io by Na3ar-17 */ 
+.container {
+  position: fixed;
+  bottom: 110px; /* Posiciona acima do ícone de chat */
+  right: 34px;   /* Alinha horizontalmente com o ícone de chat */
+  z-index: 999;  /* Garante que esteja acima de outros elementos */
+  padding: 0;
+  margin: 0;
+  width: auto;   /* Permite que o botão mantenha seu tamanho automático */
+  
+}
+
+/* Opcional: Centralizar o conteúdo dentro do contêiner */
+.container .label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.Btn {
+  width: 70px;
+  height: 70px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgb(27, 27, 27);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition-duration: 0.3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.11);
+}
+
+.svgIcon {
+  fill: #2196f3;
+}
+
+.icon2 {
+  width: 18px;
+  height: 5px;
+  border-bottom: 2px solid #2196f3;
+  border-left: 2px solid #2196f3;
+  border-right: 2px solid #2196f3;
+}
+
+.tooltip {
+  position: absolute;
+  right: -80px;
+  opacity: 0;
+  background-color: rgb(12, 12, 12);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 0.2s;
+  pointer-events: none;
+  letter-spacing: 0.5px;
+}
+
+.tooltip::before {
+  position: absolute;
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: rgb(12, 12, 12);
+  background-size: 1000%;
+  background-position: center;
+  transform: rotate(45deg);
+  left: -5%;
+  transition-duration: 0.3s;
+}
+
+.Btn:hover .tooltip {
+  opacity: 1;
+  transition-duration: 0.3s;
+}
+
+.Btn:hover {
+  background-color: #2196f3;
+  transition-duration: 0.3s;
+}
+
+.Btn:hover .icon2 {
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
+.Btn:hover .svgIcon {
+  fill: black;
+  animation: slide-in-top 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}

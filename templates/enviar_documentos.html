@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Incluindo Font Awesome para os ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <title>Enviar documentos</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='enviar_documentos.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='chaticon.css') }}">
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light shadow">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Menu App</span>
+        <h1 class="modal-title" id="username-header">Sejá Bem Vindo, {{username}}</h1>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="container mt-4">
+      <h1>ENVIAR RELATÓRIO DASHBOARD</h1>
+      <h1>Lista de Clientes</h1>
+  
+     <!-- Formulário de busca -->
+      <div class="row mb-4">
+        <div class="col-12">
+          <input type="text" class="form-control" id="client-search-input" placeholder="Digite CPF para busca" aria-label="Search">
+        </div>
+
+         <!-- Contêiner de botões para pesquisar e limpar -->
+          <div class="col-12 btn-container">
+            <button id="buscar-clientes-btn" class="btn btn-primary btn-uniforme">
+              <i class="fa fa-search" aria-hidden="true"></i> Pesquisar Cliente
+            </button>
+            <button id="limpar-btn" class="btn btn-secondary btn-uniforme">
+              <i class="fas fa-trash" aria-hidden="true"></i> Limpar Resultado
+            </button>
+          </div>
+        </div>
+  
+        <!-- Tabela de Resultados de Clientes -->
+        <div class="col-12">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Selecionar</th>
+                <th>CPF</th>
+                <th>Nome Completo</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
+                <th>Cidade</th>
+              </tr>
+            </thead>
+            <tbody id="client-table-body">
+              <!-- Os resultados dos clientes serão inseridos aqui -->
+            </tbody>
+          </table>
+        </div>    
+        
+       <!-- Seção de Upload de Anexo -->
+        <div class="col-12 upload-container mt-4">          
+          <input id="nome-relatorio" type="file" class="form-control" >
+          <label for="nome-relatorio">Selecionar Relatório (PDF.)</label>
+        </div>
+      
+       <!-- Contêiner para os botões de Enviar E-mail e Limpar Anexo -->
+        <div class="col-12 btn-container">
+          <button class="btn btn-primary btn-uniforme" id="enviar-relatorio-email-btn" title="Enviar via E-mail">
+            <i class="fas fa-envelope"></i> Enviar E-mail
+          </button>
+          <button class="btn btn-danger btn-uniforme" id="limpar-anexo-btn">
+            <i class="fas fa-times" aria-hidden="true"></i> Limpar Anexo
+          </button>
+        </div>
+      </div>
+        
+    
+      <!-- Ícone de chat -->
+      <div class="chat-icon" id="chatIcon" onclick="toggleChat()">
+        <i class="fas fa-comments"></i>
+      </div>
+  
+      <div class="chat-window" id="chatWindow" style="display: none;">
+        <div class="chat-header">
+          Chat Bot <button type="button" class="close-btn" onclick="toggleChat()">X</button>
+        </div>
+        <div class="chat-body" id="chatBody">
+          <p>Bem-vindo! Como posso ajudar?</p>
+        </div>
+        <div id="chatbox">
+          <!-- Conteúdo do chatbox será adicionado aqui -->
+        </div>
+        <div class="chat-footer">
+          <input type="text" id="chatInput" placeholder="Digite sua mensagem..." autofocus>
+          <button type="button" onclick="sendMessageDirect()">Enviar</button>
+        </div>
+      </div>
+
+    <!-- Conteúdo do menu -->
+    <div class="modal true" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="exampleModalLabel">MENU</h3>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <ul class="list-group list-group-flush">
+              <li><a href="/home"><i class="fas fa-home"></i>Home Page</a></li>
+              <li><a href="/dashboard"><i class="fa fa-chart-line" aria-hidden="true"></i>Dashboard</a></li>
+              <!-- <li><a href="/faturam ento"><i class="fa fa-chart-line" aria-hidden="true"></i>Faturamento</a></li> -->
+              <li><a href="/services"><i class="fa fa-cogs"></i>Services</a></li>
+              <li><a href="/minha_conta"><i class="fa fa-user-circle"></i> Minha Conta</a></li>
+              <li><a href="/clientepf"><i class="fa fa-user-plus" aria-hidden="true"></i>Cadastrar Cliente PF</a></li>
+              <li><a href="/enviar_documentos"><i class="fa fa-paper-plane" aria-hidden="true"></i>Enviar Documentos</a></li>
+              <li><a href="/Veiculo"><i class="fa fa-question-circle"></i> Veículo</a></li>
+              <li><a href="/feedback"><i class="fa fa-comment"></i> Feedback</a></li>
+              <li><a href="#" id="logout-link"><i class="fa fa-sign-out-alt" aria-hidden="true"></i> Logout</a></li>
+            </ul>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de Sessão Expirada (invisível por padrão) -->
+    <div id="expiredSessionModal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background-color:#f8d7da; color:#721c24; border:1px solid #f5c6cb; padding:20px; border-radius:8px; z-index: 1000;">
+      <h3>Sessão Expirada</h3>
+      <p>Sua sessão expirou. Por favor, faça login novamente para continuar.</p>
+      <button id="loginButton" style="background-color:#f5c6cb; border:none; padding:10px; color:#721c24; cursor:pointer;">Ir para a Página de Login</button>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./static/rotacao_paginas.js"></script>
+    <script src="{{ url_for('static', filename='logout.js') }}"></script>
+    <script src="{{ url_for('static', filename='rot_pag_protegida.js') }}"></script>
+    <script src="{{ url_for('static', filename='lidar_token_exp.js') }}"></script> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }
+
+  const csrfToken = getCookie('csrf_access_token');
+
+  // Função para limpar o formulário
+  function limparFormulario() {
+            document.getElementById('client-search-input').value = '';  // Limpa o campo de busca
+            document.getElementById('client-table-body').innerHTML = '';  // Limpa a tabela de clientes
+
+            const nomeRelatorioInput = document.getElementById('nome-relatorio');
+            if (nomeRelatorioInput) {
+                nomeRelatorioInput.value = '';  // Limpa o campo de anexo
+            }
+
+            // Desmarcar todas as caixas de seleção
+            const checkboxes = document.querySelectorAll('.cliente-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;  // Desmarca as caixas de seleção
+            });
+        }
+
+  // Botão Buscar Clientes
+  const buscarClientesBtn = document.getElementById('buscar-clientes-btn');
+  if (buscarClientesBtn) {
+    buscarClientesBtn.addEventListener('click', async function () {
+      const clientSearchInput = document.getElementById('client-search-input').value.trim();
+      
+      // Verifica se o CPF foi preenchido
+      if (!clientSearchInput) {
+        alert("Por favor, digite um CPF para buscar.");
+        return;
+      }
+
+      const data = { cpf: clientSearchInput };  // CPF para busca
+
+      try {
+        const response = await fetch('http://127.0.0.1:5000/consultar_cliente_documentos', {
+          method: 'POST',
+          credentials: 'include',
+          headers: { 
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': csrfToken
+          },
+          body: JSON.stringify(data)
+        });
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(`Erro ${response.status}: ${errorText}`);
+        }
+
+        const result = await response.json();
+        displayClientes(result.clientes);
+
+      } catch (error) {
+        console.error('Erro ao buscar clientes:', error);
+        alert('Erro ao buscar clientes: ' + error.message);
+      }
+    });
+  } else {
+    console.error('Botão "Buscar Clientes" não encontrado.');
+  }
+
+  // Função para exibir os clientes na tabela
+  function displayClientes(clientes) {
+    const resultTableBody = document.getElementById('client-table-body');
+    resultTableBody.innerHTML = '';  // Limpa os resultados anteriores
+
+    if (!clientes || clientes.length === 0) {
+      alert('Nenhum cliente encontrado.');
+      return;
+    }
+
+    clientes.forEach(cliente => {
+      const row = `
+        <tr>
+          <td><input type="checkbox" class="cliente-checkbox" value="${cliente.cpf}" data-email="${cliente.email}"></td>
+          <td>${cliente.cpf}</td>
+          <td>${cliente.nome_completo}</td>
+          <td>${cliente.telefone}</td>
+          <td>${cliente.email}</td>
+          <td>${cliente.cidade}</td>
+        </tr>`;
+      resultTableBody.innerHTML += row;
+    });
+
+    console.log(clientes);  // Para debugar a exibição dos clientes
+  }
+
+  // Botão de Enviar Relatório por E-mail
+  const enviarRelatorioBtn = document.getElementById('enviar-relatorio-email-btn');
+  const nomeRelatorioInput = document.getElementById('nome-relatorio');
+
+  if (enviarRelatorioBtn && nomeRelatorioInput) {
+    enviarRelatorioBtn.addEventListener('click', async function () {
+      const arquivo = nomeRelatorioInput.files[0];  // Arquivo do input
+      if (!arquivo) {
+        alert("Por favor, selecione um arquivo antes de enviar.");
+        return;
+      }
+
+      const checkboxes = document.querySelectorAll('.cliente-checkbox:checked');
+      if (checkboxes.length === 0) {
+        alert('Nenhum cliente selecionado.');
+        return;
+      }
+
+      // Capturar os emails dos clientes selecionados
+      const clientesSelecionados = Array.from(checkboxes).map(checkbox => ({
+        cpf: checkbox.value,
+        email: checkbox.getAttribute('data-email')
+      }));
+
+      // Criar o FormData para envio do arquivo e dados dos clientes
+      const formData = new FormData();
+      formData.append('arquivo', arquivo);  // Anexa o arquivo ao formulário
+      formData.append('clientes', JSON.stringify(clientesSelecionados));  // Adiciona clientes como JSON
+
+      try {
+        const response = await fetch('http://127.0.0.1:5000/enviar_relatorio_email', {
+          method: 'POST',
+          credentials: 'include',
+          headers: { 
+            'X-CSRF-TOKEN': csrfToken  // Apenas para adicionar o CSRF Token
+          },
+          body: formData  // Envia como FormData para incluir o arquivo
+        });
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(`Erro ${response.status}: ${errorText}`);
+        }
+
+        const result = await response.json();
+        alert(result.message);
+        // Limpa todos os campos do formulário após o envio bem-sucedido
+        limparFormulario();
+        console.log("Status de envio:", result.status);
+
+      } catch (error) {
+        console.error('Erro ao enviar relatório por e-mail:', error);
+        alert('Erro ao enviar relatório: ' + error.message);
+      }
+    });
+  } else {
+    console.error('Botão de envio ou input de relatório não encontrado.');
+  }
+
+  // Botão de Limpar
+  const limparAnexoBtn = document.getElementById('limpar-anexo-btn');
+  const limparBtn = document.getElementById('limpar-btn');
+  if (limparBtn) {
+    limparBtn.addEventListener('click', function () {
+      document.getElementById('client-search-input').value = '';  // Limpa o campo de pesquisa
+      document.getElementById('client-table-body').innerHTML = '';  // Limpa os resultados da tabela
+    });
+  } else {
+    console.error('Botão "Limpar" não encontrado.');
+  }
+
+  if (limparAnexoBtn) {
+            limparAnexoBtn.addEventListener('click', function () {
+                nomeRelatorioInput.value = '';  // Limpa o campo de upload
+                alert('Anexo removido com sucesso.');
+            });
+        } else {
+            console.error('Botão "Limpar Anexo" não encontrado.');
+        }
+  
+});
+
+    </script>
+  </body>
+</html>

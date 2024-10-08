@@ -1,0 +1,198 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #333;
+  padding-top: 80px; /* Ajuste conforme a altura da navbar */
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Garante que a navbar esteja acima de outros elementos */
+}
+
+.navbar-brand {
+  font-size: 30px;     /* Aumenta o tamanho da fonte */
+  font-weight: bold;   /* Deixa o texto mais espesso (opcional) */
+  color: #333;         /* Cor do texto (você pode alterar se necessário) */
+}
+
+.modal {
+  width: 400px;
+  
+}
+
+.modal-content {
+  width: 400px;
+  
+}
+
+.list-group-item:hover {
+  background-color: rgba(59, 57, 57, 0.164);
+
+}
+
+.list-group {
+  list-style-type: none; /* Remove os marcadores */
+  padding-left: 0;       /* Remove o recuo padrão da lista */
+}
+
+.list-group li {
+  text-decoration: none; /* Remove sublinhado dos links */
+  color: #007bff;        /* Define a cor do link */
+  display: flex;         /* Alinha ícones e texto horizontalmente */
+  align-items: center;   /* Alinha ícones e texto verticalmente */
+  font-size: 20px;       /* Aumenta o tamanho do texto dos itens do menu */
+  font-weight: bold;     /* Aumenta a espessura da fonte */
+}
+
+.list-group li a {
+  text-decoration: none; /* Remove sublinhado dos links */
+  color: #007bff;        /* Define a cor do link */
+  display: flex;         /* Alinha ícones e texto horizontalmente */
+  align-items: center;   /* Alinha ícones e texto verticalmente */
+  size: 30px;
+  font-size: 25px;            /* Aumenta o tamanho do texto */
+  font-weight: bold;          /* Aumenta a espessura da fonte */
+  padding: 15px;
+}
+
+.list-group li a i {
+  margin-right: 10px;         /* Espaçamento entre o ícone e o texto */
+  font-size: 25px;            /* Aumenta o tamanho dos ícones do menu */
+}
+
+/* Estilo para os links das redes sociais */
+.social-icons {
+  display: flex;              /* Coloca os ícones lado a lado */
+  justify-content: start;     /* Alinha os ícones à esquerda */
+  gap: 80px;                  /* Espaçamento entre os ícones */
+  margin-top: 20px;
+  margin-left: 20px;          /* Espaçamento acima dos ícones */
+}
+
+.social-icons a {
+  font-size: 30px;            /* Define o tamanho dos ícones */
+  color: #007bff;             /* Cor dos ícones */
+  text-decoration: none;      /* Remove sublinhado dos ícones */
+}
+
+.social-icons a:hover {
+  color: #0056b3;             /* Cor dos ícones ao passar o mouse */
+}
+
+/* Estilos para a seção de busca de veículos */
+#vehicle-search h1, #vehicle-search p {
+  color: #fff;
+}
+
+#vehicle-search .filters h5 {
+  color: #fff;
+}
+
+/* Estilos para a seção de busca de clientes */
+#client-search h1, #client-search p {
+  color: #fff;
+}
+
+#client-search .filters h5 {
+  color: #fff;
+}
+
+/* Estilos específicos de inputs */
+input, select {
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+}
+
+/* Ajustes para a barra de pesquisa */
+.search-bar {
+  max-width: 100%;
+  margin: 0 auto 30px auto;
+}
+
+input[type="text"] {
+  background-color: #fff;
+  color: #fff;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+/* Ajuste para os botões de filtragem */
+button[type="submit"] {
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Ajustes de margem para as seções */
+#vehicle-search, #client-search {
+  margin-bottom: 50px;
+}
+
+/* Estilo para os labels */
+label {
+  color: #ffffff; /* Define a cor dos labels como branco */
+}
+
+/* Estilo para os labels */
+label {
+  color: #ffffff; /* Define a cor dos labels como branco */
+}
+
+/* Estilos específicos de inputs */
+input, select, label {
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  color: #fff; /* Caso você queira também mudar a cor do texto dos inputs */
+}
+
+#value-display {
+  color: #ffffff; /* Altera a cor do texto para branco */
+  font-size: 18px; /* Aumenta o tamanho da fonte para melhor visibilidade (opcional) */
+  margin-top: 10px; /* Adiciona um espaçamento acima do valor */
+  text-align: center; /* Centraliza o valor */
+}
+
+.card-result {
+  background-color: #444;
+  color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.card-result h5 {
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+.alert {
+  margin-top: 20px;
+}
+
+#veiculos-tbody tr td {
+  text-align: center; /* Centraliza o texto */
+}
+
+#veiculos-tbody {
+  font-size: 18px;
+}
+
+#search-container {
+  margin-bottom: 20px;
+}
+

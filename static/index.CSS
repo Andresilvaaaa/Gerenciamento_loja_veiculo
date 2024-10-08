@@ -1,0 +1,111 @@
+/* Estilos Globais */
+body {
+  background-color: #fafafa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  font-size: 18px;
+}
+
+/* Container principal */
+.container {
+  max-width: 350px;
+  max-height: 600px;
+}
+
+/* Formulário de Login */
+.login-form {
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #dbdbdb;
+  padding: 40px 40px 20px;
+}
+
+.login-form h1 {
+  font-family: 'Billabong', cursive;
+  font-size: 3rem;
+  margin-bottom: 35px;
+}
+
+.login-form .form-control {
+  background-color: #fafafa;
+  border: 1px solid #dbdbdb;
+  font-size: 14px;
+}
+
+.login-form .form-control:focus {
+  background-color: #fafafa;
+  border: 1px solid #a8a8a8;
+  box-shadow: none;
+}
+
+.login-form .btn-primary {
+  background-color: #0095f6;
+  border: none;
+  font-weight: bold;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.login-form .btn-primary:hover {
+  background-color: #0085e0;
+}
+
+.login-form .separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.login-form .separator::before,
+.login-form .separator::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.login-form .separator::before {
+  margin-right: .25em;
+}
+
+.login-form .separator::after {
+  margin-left: .25em;
+}
+
+.login-form .toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.login-form .toggle-password i {
+  color: #8e8e8e;
+}
+
+/* Seção Registrar */
+.register-section {
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #dbdbdb;
+  padding: 20px;
+}
+
+.register-section p {
+  font-size: 14px;
+}
+
+.register-section a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .container {
+    padding: 0 20px;
+  }
+}

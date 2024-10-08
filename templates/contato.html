@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <!-- Metadados -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contato - AGEVEC</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome para ícones -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+    <!-- Arquivos CSS personalizados -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='contato.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='chaticon.css') }}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="container-fluid">
+  <a class="navbar-brand" href="#">AGEVEC</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav me-auto">
+      <!-- <li class="nav-item"><a class="nav-link" href="./index.html" data-page="home">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="./contato.html" data-page="contato">Contato</a></li>
+      <li class="nav-item"><a class="nav-link" href="./quem_somos.html" data-page="sobre">Quem Somos</a></li> -->
+      <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="{{ url_for('contato') }}">Contato</a></li>
+      <li class="nav-item"><a class="nav-link" href="{{ url_for('quem_somos') }}">Quem Somos</a></li>
+    </ul>
+    </div>
+    <form class="d-flex">
+      <input class="" type="search" placeholder="Procurar" aria-label="Procurar">
+      <button class="btn btn-outline-success" type="submit">Procurar</button>
+    </form>
+  </div>
+</div>
+</nav>
+
+
+    <!-- Conteúdo Principal -->
+    <div class="container my-5">
+        <h1 class="text-center text-primary mb-5">Entre em Contato</h1>
+        <div class="row">
+            <!-- Informações de Contato -->
+            <div class="col-md-6 mb-4">
+                <h2 class="mb-4">Fale Conosco</h2>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@mail.com">info@mail.com</a></p>
+                <p><i class="fas fa-phone-alt"></i> <a href="tel:+5519444445555">+55 19 4444-4555</a></p>
+                <p><i class="fab fa-whatsapp"></i> <a href="tel:+5519999999999">+55 19 9 9999-9999</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/nfcUJCgF9ToZKaNf6" target="_blank">Av. Alameda das Travessas, 111, Edif. Bosque do Cerrado, ap. 2222 - Bairro dos Barris. Salvador/BA</a></p>
+                <h3 class="mt-5">Siga-nos</h3>
+                <div>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram fa-2x"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f fa-2x"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter fa-2x"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube fa-2x"></i></a>
+                </div>
+            </div>
+
+            <!-- Formulário de Contato -->
+            <div class="col-md-6">
+                <h2 class="mb-4">Deixe sua Mensagem</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="name" placeholder="Digite seu nome">
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Telefone</label>
+                        <input type="text" class="form-control" id="phone" placeholder="Digite seu telefone">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="email" placeholder="Digite seu email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Mensagem</label>
+                        <textarea class="form-control" id="message" rows="5" placeholder="Digite sua mensagem"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ícone de chat -->
+    <div class="chat-icon" id="chatIcon" onclick="toggleChat()">
+        <i class="fas fa-comments"></i>
+    </div>
+
+    <!-- Janela de chat -->
+    <div class="chat-window" id="chatWindow" style="display: none;">
+        <div class="chat-header">
+            Chat Bot <button type="button" class="close-btn" onclick="toggleChat()">X</button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <p>Bem-vindo! Como posso ajudar?</p>
+        </div>
+        <div id="chatbox">
+            <!-- Conteúdo do chatbox será adicionado aqui -->
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="Digite sua mensagem..." autofocus>
+            <button type="button" onclick="sendMessageDirect()">Enviar</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='rotacao_paginas.js') }}"></script>
+</body>
+</html>
