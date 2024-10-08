@@ -15,13 +15,36 @@ Este projeto é um **sistema de gerenciamento de veículos** desenvolvido com **
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **Backend**: Flask, Flask-JWT-Extended
-- **Frontend**: HTML, CSS, JavaScript, Bootstrap
-- **Banco de Dados**: MySQL / MariaDB
-- **Relatórios e PDFs**: ReportLab
-- **Autenticação e Segurança**: JWT (JSON Web Tokens)
-- **Integração**: PyWhatKit para envio de mensagens e PDFs via WhatsApp
-- **Gerenciamento de Sessão**: Flask-Session
+Backend:
+Python: Linguagem de programação principal utilizada para implementar a lógica de negócios e operações do servidor.
+Flask: Microframework utilizado para desenvolver a API e gerenciar as rotas do backend. Possui suporte a templates, gerenciamento de sessões e integração com diversos módulos.
+Flask-JWT-Extended: Biblioteca utilizada para implementar autenticação baseada em JWT (JSON Web Tokens), oferecendo suporte completo para geração e verificação de tokens, armazenamento seguro em cookies e controle de permissões.
+
+Frontend:
+HTML: Estruturação e marcação das páginas web para exibir informações ao usuário.
+CSS: Estilização visual das páginas, com personalização de cores, layouts e responsividade.
+JavaScript: Adicionado para manipulação de eventos, validação de formulários, chamadas dinâmicas à API e navegação entre as páginas.
+Bootstrap: Biblioteca front-end baseada em CSS e JavaScript para design responsivo, utilizada para criar componentes visuais como botões, cards, tabelas, modais e menus de navegação.
+
+Banco de Dados:
+MySQL / MariaDB: Sistemas de gerenciamento de banco de dados relacionais usados para armazenamento e recuperação de dados. Suporte a procedures e triggers para automatização de tarefas e consultas complexas.
+
+Relatórios e Geração de PDFs:
+ReportLab: Biblioteca de geração de documentos PDF em Python, usada para criar faturas e relatórios personalizados diretamente a partir dos dados do sistema, com gráficos, tabelas e layouts dinâmicos.
+
+Autenticação e Segurança:
+JWT (JSON Web Tokens): Utilizado para gerenciamento de autenticação e autorização, permitindo que as rotas sejam protegidas por tokens seguros e temporários, evitando acessos não autorizados.
+Flask-Session: Gerenciamento de sessão para armazenar e compartilhar informações temporárias durante a navegação dos usuários, como dados de login e detalhes de operações.
+
+Integração e Comunicação:
+PyWhatKit: Biblioteca de automação para enviar mensagens e arquivos PDF pelo WhatsApp, utilizada para integração com serviços de comunicação e envio automatizado de relatórios e faturas para clientes.
+
+Armazenamento de Configurações e Variáveis:
+dotenv: Biblioteca utilizada para carregar variáveis de ambiente a partir de um arquivo .env, mantendo as credenciais e configurações de forma segura e fora do código-fonte.
+
+Controle de Versão e Colaboração:
+Git: Sistema de controle de versão utilizado para rastrear alterações no código, possibilitando colaboração em equipe e gerenciamento de versões.
+GitHub: Plataforma de hospedagem de repositórios Git para compartilhamento do código, versionamento e controle de mudanças.
 
 ## ⚙️ Como Executar o Projeto Localmente
 
